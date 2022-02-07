@@ -5,10 +5,16 @@ project(Containers VERSION 0.1)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# SET LIBRARY SOURCES
+set(LIB_SOURCES
+	lib/linked_list.cc
+	lib/node.cc
+)
+
 # BUILD LIBRARIES AND MAIN EXECUTABLE
-
-add_executable(main main.cc)
-
+add_library(Containers STATIC ${LIB_SOURCES})
+add_executable(Main main.cc)
+target_link_libraries(Main Containers)
 # FETCH GOOGLETEST
 
 include(FetchContent)
